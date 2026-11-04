@@ -1,6 +1,6 @@
 # coderabbit
 
-The central CodeRabbit configuration for the repos under `pissmyran`. Repositories can inherit `.coderabbit.yaml` from here with `inheritance: true` in their own `.coderabbit.yaml` and add only what applies to each repo: `path_instructions` for its own folders, its own `path_filters`, its own labels, linked repos and any repo-specific checks.
+The central CodeRabbit configuration for the repos under `Myrpisset`. Repositories can inherit `.coderabbit.yaml` from here with `inheritance: true` in their own `.coderabbit.yaml` and add only what applies to each repo: `path_instructions` for its own folders, its own `path_filters`, its own labels, linked repos and any repo-specific checks.
 
 ## Free OSS access and billing
 
@@ -33,7 +33,7 @@ Zero cost also requires account settings: keep usage-based billing and separatel
 
 CodeRabbit can read linked repos during a review and warn about changes that break something in another repo. The links belong in each repo's own `.coderabbit.yaml` under `knowledge_base.linked_repositories`, not here. This is how the repos are to be linked:
 
-- **Bastion:** `bastion`, `bastion_apple`, `bastion_linux`, `bastion_windows` and `bastion_android` are linked to each other. They are one client on different platforms and share the sync format, which `bastion_apple` owns.
+- **Bastion:** `bastion`, `bastion-apple`, `bastion-linux`, `bastion-windows` and `bastion-android` are linked to each other. They are one client on different platforms and share the sync format, which `bastion-apple` owns.
 - **The services:** `dumpen`, `jobb`, `klarsprak` and `politiker` are linked to each other. They share the pattern for placeholders, `tools/render.mjs`, Docker, `import-settings.sh` and the documentation site, so a change to the shared tooling must be made the same way in all four.
 
 ## Labels
