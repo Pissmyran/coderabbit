@@ -146,6 +146,8 @@ reviews:
         addresses, names, keys, payment links) without repeating them; the repos
         are public and only placeholders and example.com values are allowed.
         The owner and agent handles in reviewer requests and mentions are fine.
+        The public documentation address that GOVERNANCE.md (rule 18) defines
+        is also fine.
         Code, comments, docstrings, commit messages and PR text are English.
         Documentation follows repository-authorized language exceptions.
         Known AI authorship is not a defect. Keep slop classification separate
@@ -164,7 +166,8 @@ reviews:
         docs/sv/, that Swedish mirror must change in the same PR as the English
         page it translates; repos without docs/sv/ have no mirror to update.
         Commands go one per code block, and only what is pasted goes inside it.
-        Flag real personal values; only placeholders and example values are allowed.
+        Flag real personal values; only placeholders and example values are allowed,
+        plus the public documentation address that GOVERNANCE.md (rule 18) defines.
         Do not comment on wording, tone or style unless it makes an instruction
         wrong or ambiguous.
 
@@ -377,7 +380,8 @@ reviews:
           names, keys, tokens, payment links or account details; placeholders,
           __NAME__ values, example.com values and the names of this account's own
           public repositories and products, and the owner and agent handles used for
-          reviewer requests and mentions, are fine. Fail and point to the line
+          reviewer requests and mentions, and the public documentation address that
+          GOVERNANCE.md (rule 18) defines, are fine. Fail and point to the line
           without repeating the value otherwise.
 
   # Agent features that generate commits or PRs can use credits and act on
