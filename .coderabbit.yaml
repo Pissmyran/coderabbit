@@ -12,9 +12,8 @@
 
 language: en-US
 tone_instructions: >-
-  Write concise English. For each finding, name the defect, its consequence,
-  and a concrete fix. Separate confirmed defects from unverified risks.
-  Skip praise, repetition, cosmetic remarks, and authorship guesses.
+  Start each finding comment with @SurgeDahlia. Be concise: defect, consequence,
+  concrete fix. Mark unverified risks. No praise, repetition or cosmetic remarks.
 
 inheritance: false
 early_access: true
@@ -88,7 +87,16 @@ reviews:
   # Suggest reviewers and assign them automatically.
   suggested_reviewers: true
   auto_assign_reviewers: true
-  suggested_reviewers_instructions: []
+  # Every pull request that gets a CodeRabbit review (automatic reviews cover
+  # pull requests to the default branch) requests the owner and the agent
+  # account. GitHub skips whichever of the two opened the pull request.
+  suggested_reviewers_instructions:
+    - reviewers:
+        - handle: pissmyran
+          type: user
+        - handle: SurgeDahlia
+          type: user
+      instructions: "Assign on every pull request."
 
   abort_on_close: true
 
@@ -137,6 +145,7 @@ reviews:
         Flag leaked secrets and real personal values (ids, domains, email
         addresses, names, keys, payment links) without repeating them; the repos
         are public and only placeholders and example.com values are allowed.
+        The owner and agent handles in reviewer requests and mentions are fine.
         Code, comments, docstrings, commit messages and PR text are English.
         Documentation follows repository-authorized language exceptions.
         Known AI authorship is not a defect. Keep slop classification separate
@@ -367,7 +376,8 @@ reviews:
           Pass when the diff adds no real ids, domains, email addresses, people's
           names, keys, tokens, payment links or account details; placeholders,
           __NAME__ values, example.com values and the names of this account's own
-          public repositories and products are fine. Fail and point to the line
+          public repositories and products, and the owner and agent handles used for
+          reviewer requests and mentions, are fine. Fail and point to the line
           without repeating the value otherwise.
 
   # Agent features that generate commits or PRs can use credits and act on
