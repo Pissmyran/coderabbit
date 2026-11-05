@@ -10,28 +10,12 @@
 # - Advise, never block: no approvals, no request-changes, no failing statuses,
 #   every pre-merge check is a warning.
 
-language: en-US
 tone_instructions: >-
   Start each finding comment with @SurgeDahlia. Be concise: defect, consequence,
   concrete fix. Mark unverified risks. No praise, repetition or cosmetic remarks.
 
-inheritance: false
 early_access: true
-enable_free_tier: true
-
 reviews:
-  # Balanced defect reporting; instructions control comment length.
-  profile: chill
-
-  # Advisory only. Auto-approvals also make CodeRabbit request changes for
-  # blocking findings, so it stays off.
-  auto_approvals:
-    enabled: false
-
-  # Summary in the PR description.
-  high_level_summary: true
-  high_level_summary_in_walkthrough: false
-  high_level_summary_placeholder: "@coderabbitai summary"
   high_level_summary_instructions: |
     Use at most three short bullets.
     State the main change and its practical consequence.
@@ -69,23 +53,13 @@ reviews:
   # Hide run details; query live rolling-window quota with
   # `@coderabbitai rate limit`. Do not invent remaining reviews or an ETA.
   review_info: false
-  review_details: false
   review_progress: false
   commit_status: false
-  fail_commit_status: false
   collapse_walkthrough: false
   changed_files_summary: false
   sequence_diagrams: false
   estimate_code_review_effort: false
-  assess_linked_issues: true
-  related_issues: true
-  related_prs: true
   in_progress_fortune: false
-  poem: false
-  enable_prompt_for_ai_agents: true
-
-  # Suggest reviewers and assign them automatically.
-  suggested_reviewers: true
   auto_assign_reviewers: true
   # Every pull request that gets a CodeRabbit review (automatic reviews cover
   # pull requests to the default branch) requests the owner and the agent
@@ -98,26 +72,16 @@ reviews:
           type: user
       instructions: "Assign on every pull request."
 
-  abort_on_close: true
-
-  # Flags low-quality AI-generated PRs with a walkthrough warning and the slop label.
-  # include_all_authors also covers same-repo branches, where agents open their PRs.
   slop_detection:
-    enabled: true
     include_all_authors: true
     label: "slop"
 
   # Include drafts and incremental pushes; the wip label pauses automation.
   # Public repos below 10 stars require manual review triggers.
   auto_review:
-    enabled: true
-    auto_incremental_review: true
     auto_pause_after_reviewed_commits: 0
     drafts: true
-    base_branches: []
     labels: ["!wip"]
-    ignore_usernames: []
-    ignore_title_keywords: []
 
   # Review code and documentation. Skip only generated output. Lock files stay
   # in scope so the dependency scanners can read the resolved versions.
@@ -259,7 +223,6 @@ reviews:
   # Change type: one or more. Review state and quality state: at most one each.
   # Quality assessments are revision-specific; continuous synchronization is
   # not guaranteed. Event-driven invalidation needs owner-managed automation.
-  suggested_labels: true
   auto_apply_labels: true
   labeling_instructions:
     - label: fix
@@ -348,21 +311,13 @@ reviews:
 
   # Every check is advisory. None of them can block a merge.
   pre_merge_checks:
-    override_requested_reviewers_only: false
     title:
-      mode: warning
       requirements: >-
         Conventional Commits with the type feat, fix, docs, refactor, perf,
         test, build, ci, chore, style or revert, as `type: description` or
         `type(scope): description`, in English, stating the main change
         correctly, with the whole title under 72 characters. A site or
         documentation change that must be released needs feat or fix. Accept an existing title that meets these requirements.
-    description:
-      mode: warning
-    issue_assessment:
-      mode: warning
-    # Docstring coverage is not a convention in these repos and the check would
-    # only add noise; docstring guidance below still applies when docs are written.
     docstrings:
       mode: "off"
     custom_checks:
@@ -389,41 +344,11 @@ reviews:
   finishing_touches:
     docstrings: { enabled: false }
     unit_tests: { enabled: false }
-    simplify: { enabled: false }
     autofix: { enabled: false }
     fix_ci: { enabled: false }
     resolve_merge_conflict: { enabled: false }
-    custom: []
-
-  post_merge_actions: []
 
   tools:
-    # Security scanners.
-    gitleaks: { enabled: true }
-    trufflehog: { enabled: true }
-    osvScanner: { enabled: true }
-    trivy: { enabled: true }
-    opengrep: { enabled: true }
-    semgrep: { enabled: true }
-    presidio: { enabled: true }
-    skillspector: { enabled: true }
-    checkov: { enabled: true }
-    zizmor: { enabled: true }
-    ast-grep: { essential_rules: true }
-
-    # Linters for the languages used across the repos.
-    actionlint: { enabled: true }
-    shellcheck: { enabled: true }
-    hadolint: { enabled: true }
-    dotenvLint: { enabled: true }
-    ruff: { enabled: true }
-    clippy: { enabled: true }
-    swiftlint: { enabled: true }
-    detekt: { enabled: true }
-
-    # Explains failing GitHub checks on the PR.
-    github-checks: { enabled: true }
-
     # Off: overlap with Prettier and the repos' own checks, or only style noise.
     biome: { enabled: false }
     eslint: { enabled: false }
@@ -441,21 +366,14 @@ reviews:
 
 chat:
   art: false
-  auto_reply: true
-  allow_non_org_members: true
   integrations:
     jira: { usage: disabled }
     linear: { usage: disabled }
 
 knowledge_base:
-  opt_out: false
-  # Reads the repos' AGENTS.md as review criteria.
   code_guidelines:
-    enabled: true
     filePatterns:
       - "**/AGENTS.md"
-  web_search:
-    enabled: true
   learnings: { scope: global }
   issues: { scope: global }
   pull_requests: { scope: global }
@@ -463,14 +381,12 @@ knowledge_base:
   linear: { usage: disabled }
   mcp: { usage: disabled }
   automatic_linking_mode: auto
-  linked_repositories: []
 
 # Guidance for generated docstrings and tests. Generation itself is off above,
 # and these entries only apply when it runs. The same standards for reviews
 # live in reviews.path_instructions (docstring and test entries).
 code_generation:
   docstrings:
-    language: en-US
     path_instructions:
       - path: "**/*"
         instructions: |
@@ -491,11 +407,6 @@ issue_enrichment:
   # Adds context and complexity to new issues.
   auto_enrich:
     enabled: true
-  # Implementation plans are generated automatically for new issues.
-  planning:
-    enabled: true
-    auto_planning:
-      enabled: true
   labeling:
     auto_apply_labels: true
     labeling_instructions:
