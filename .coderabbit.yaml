@@ -146,6 +146,8 @@ reviews:
         addresses, names, keys, payment links) without repeating them; the repos
         are public and only placeholders and example.com values are allowed.
         The owner and agent handles in reviewer requests and mentions are fine.
+        The public documentation address that GOVERNANCE.md (rule 18) defines
+        is also fine.
         Code, comments, docstrings, commit messages and PR text are English.
         Documentation follows repository-authorized language exceptions.
         Known AI authorship is not a defect. Keep slop classification separate
@@ -377,7 +379,8 @@ reviews:
           names, keys, tokens, payment links or account details; placeholders,
           __NAME__ values, example.com values and the names of this account's own
           public repositories and products, and the owner and agent handles used for
-          reviewer requests and mentions, are fine. Fail and point to the line
+          reviewer requests and mentions, and the public documentation address that
+          GOVERNANCE.md (rule 18) defines, are fine. Fail and point to the line
           without repeating the value otherwise.
 
   # Agent features that generate commits or PRs can use credits and act on
