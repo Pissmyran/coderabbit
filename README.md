@@ -38,7 +38,7 @@ CodeRabbit can read linked repos during a review and warn about changes that bre
 
 ## Labels
 
-The labels follow GitHub's default set plus a few extras. The owner must create the new `quality-verified`, `findings-open` and `verification-needed` labels in every consuming repository before use; their existence has not been verified.
+The labels follow GitHub's default set plus a few extras. The owner must create the new `quality-verified`, `findings-open` and `verification-needed` labels in every consuming repository before use. They were checked on 2026-11-04 and exist in `.github`, `bastion` and `coderabbit`; their existence in the other repositories has not been verified.
 
 - **Type of change (PR):** `fix`, `feature`, `enhancement`, `chore`, `documentation`, `dependencies`, `security`, `accessibility` and `duplicate`. A PR can have several.
 - **Review state (PR):** `review-ready`, `needs-rework` or `rewrite-recommended`. They form a mutually exclusive group, so a PR has at most one. Rework and rewrite assessments require concrete defect evidence. `review-ready` means the latest review found no actionable defects and no thread awaits the author; it is not approval or proof that checks passed. These labels do not change mergeability.
