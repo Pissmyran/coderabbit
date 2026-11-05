@@ -166,7 +166,8 @@ reviews:
         docs/sv/, that Swedish mirror must change in the same PR as the English
         page it translates; repos without docs/sv/ have no mirror to update.
         Commands go one per code block, and only what is pasted goes inside it.
-        Flag real personal values; only placeholders and example values are allowed.
+        Flag real personal values; only placeholders and example values are allowed,
+        plus the public documentation address that GOVERNANCE.md (rule 18) defines.
         Do not comment on wording, tone or style unless it makes an instruction
         wrong or ambiguous.
 
