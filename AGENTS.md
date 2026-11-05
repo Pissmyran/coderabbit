@@ -20,8 +20,9 @@ Compare changed keys with the [configuration reference](https://docs.coderabbit.
 
 ## Rules
 
-- `.coderabbit.yaml` is the review base for every repository, and this repository inherits nothing (`inheritance: false`). It targets eligible free OSS Team features; standard Free supplies hosted PR summaries only. Public repositories below 10 stars require manual review triggers. CodeRabbit stays advisory. `README.md` describes what the base sets.
+- `.coderabbit.yaml` is the review base for every repository, and this repository inherits nothing (`inheritance` is off by default). It targets eligible free OSS Team features; standard Free supplies hosted PR summaries only. Public repositories below 10 stars require manual review triggers. CodeRabbit stays advisory. `README.md` describes what the base sets.
 - Consuming repositories can inherit it with `inheritance: true` and add only what is specific to them: `path_instructions`, `path_filters`, labels, checks and linked repositories. Lists merge with the repository's entries first, and an entry with the same `path` or `label` replaces the base's.
+- **Only changed values live here.** The file lists the settings that differ from the CodeRabbit default (checked against the schema), nothing else. A setting equal to its default is removed, including the scanners and the on-by-default features, which stay on because they are the default. When CodeRabbit changes a default, review the effect.
 - **A change here affects every repository using this base** at its next review, subject to local and global overrides. Weigh each change against all of them.
 - Settings that apply to every repository belong here; instructions for specific files belong in each repository. Write instructions short and concrete, in the style of the existing ones.
 - **Never weaken the review:** do not turn off security tools and do not add exclusions for code.
