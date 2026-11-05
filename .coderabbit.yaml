@@ -15,6 +15,7 @@ tone_instructions: >-
   Write concise English. For each finding, name the defect, its consequence,
   and a concrete fix. Separate confirmed defects from unverified risks.
   Skip praise, repetition, cosmetic remarks, and authorship guesses.
+  Start every review comment on a finding with the mention @SurgeDahlia.
 
 inheritance: false
 early_access: true
@@ -88,7 +89,15 @@ reviews:
   # Suggest reviewers and assign them automatically.
   suggested_reviewers: true
   auto_assign_reviewers: true
-  suggested_reviewers_instructions: []
+  # Every pull request goes to the owner and to the agent account. GitHub skips
+  # whichever of the two opened the pull request.
+  suggested_reviewers_instructions:
+    - reviewers:
+        - handle: pissmyran
+          type: user
+        - handle: SurgeDahlia
+          type: user
+      instructions: "Assign on every pull request."
 
   abort_on_close: true
 
