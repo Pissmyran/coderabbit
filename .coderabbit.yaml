@@ -12,6 +12,20 @@
 
 language: en-US
 tone_instructions: >-
+  Start each finding comment with @SurgeDahlia. Be concise: defect, consequence,
+  concrete fix. Mark unverified risks. No praise, repetition or cosmetic remarks.
+
+inheritance: true` and add only what is specific to them.
+#
+# Principles:
+# - Target eligible free OSS access; standard Free has PR summaries only.
+# - Turn off everything that can cost money or credits.
+# - Turn off output that only adds noise.
+# - Advise, never block: no approvals, no request-changes, no failing statuses,
+#   every pre-merge check is a warning.
+
+language: en-US
+tone_instructions: >-
   Write concise English. For each finding, name the defect, its consequence,
   and a concrete fix. Separate confirmed defects from unverified risks.
   Skip praise, repetition, cosmetic remarks, and authorship guesses.
@@ -89,8 +103,9 @@ reviews:
   # Suggest reviewers and assign them automatically.
   suggested_reviewers: true
   auto_assign_reviewers: true
-  # Every pull request goes to the owner and to the agent account. GitHub skips
-  # whichever of the two opened the pull request.
+  # Every pull request that gets a CodeRabbit review (automatic reviews cover
+  # pull requests to the default branch) requests the owner and the agent
+  # account. GitHub skips whichever of the two opened the pull request.
   suggested_reviewers_instructions:
     - reviewers:
         - handle: pissmyran
