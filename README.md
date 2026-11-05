@@ -1,3 +1,5 @@
+> Guide: [AI- och Copilot-inställningar på GitHub](https://github.com/pissmyran/.github/blob/main/public/ai-och-copilot.md) · [English](https://github.com/pissmyran/.github/blob/main/public/eng/ai-and-copilot.md)
+
 # coderabbit
 
 The central CodeRabbit configuration for the repos under `Myrpisset`. Repositories can inherit `.coderabbit.yaml` from here with `inheritance: true` in their own `.coderabbit.yaml` and add only what applies to each repo: `path_instructions` for its own folders, its own `path_filters`, its own labels, linked repos and any repo-specific checks.
