@@ -1,6 +1,6 @@
 # coderabbit
 
-The central CodeRabbit configuration for the repos under `Pissmyran`. Repositories can inherit `.coderabbit.yaml` from here with `inheritance: true` in their own `.coderabbit.yaml` and add only what applies to each repo: `path_instructions` for its own folders, its own `path_filters`, its own labels, linked repos and any repo-specific checks.
+The central CodeRabbit configuration for the repositories using this base. Repositories can inherit `.coderabbit.yaml` from here with `inheritance: true` in their own `.coderabbit.yaml` and add only what applies to each repo: `path_instructions` for its own folders, its own `path_filters`, its own labels, linked repos and any repo-specific checks.
 
 ## Free OSS access and billing
 
