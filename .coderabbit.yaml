@@ -25,7 +25,7 @@ reviews:
 
   # CodeRabbit writes the title only when the PR title contains this
   # placeholder. Open a PR titled `[auto-title]` to get a generated title.
-  auto_title_placeholder: "[auto-title]"
+  auto_title_placeholder: "@coderabbitai"
   auto_title_instructions: |
     Write the PR title in English following Conventional Commits:
     `type: description` or `type(scope): description`.
