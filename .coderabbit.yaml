@@ -108,8 +108,6 @@ reviews:
         addresses, names, keys, payment links) without repeating them; the repos
         are public and only placeholders and example.com values are allowed.
         The owner handle in reviewer requests and mentions are fine.
-        The public documentation address that GOVERNANCE.md (rule 18) defines
-        is also fine.
         Code, comments, docstrings, commit messages and PR text are English.
         Documentation follows repository-authorized language exceptions.
         Known AI authorship is not a defect. Keep slop classification separate
@@ -128,8 +126,7 @@ reviews:
         docs/sv/, that Swedish mirror must change in the same PR as the English
         page it translates; repos without docs/sv/ have no mirror to update.
         Commands go one per code block, and only what is pasted goes inside it.
-        Flag real personal values; only placeholders and example values are allowed,
-        plus the public documentation address that GOVERNANCE.md (rule 18) defines.
+        Flag real personal values; only placeholders and example values are allowed.
         Do not comment on wording, tone or style unless it makes an instruction
         wrong or ambiguous.
 
@@ -145,10 +142,9 @@ reviews:
 
     - path: "**/AGENTS.md"
       instructions: |
-        Agent instructions. Shared rules live only in the governance documents
-        in the .github repo; flag any repeat of them here. The file holds only
-        what is specific to this repo. CLAUDE.md only imports AGENTS.md.
-        Check that commands listed under Commands actually exist in the repo.
+        Agent instructions. The common rules are fixed; flag edits to them.
+        Repo-specific rules belong in REPO.md. CLAUDE.md only imports AGENTS.md.
+        Check that commands listed in REPO.md actually exist in the repo.
 
     - path: ".github/**"
       instructions: |
@@ -333,8 +329,7 @@ reviews:
           names, keys, tokens, payment links or account details; placeholders,
           __NAME__ values, example.com values and the names of this account's own
           public repositories and products, and the owner handle used for
-          reviewer requests and mentions, and the public documentation address that
-          GOVERNANCE.md (rule 18) defines, are fine. Fail and point to the line
+          reviewer requests and mentions, are fine. Fail and point to the line
           without repeating the value otherwise.
 
   # Agent features that generate commits or PRs can use credits and act on

@@ -1,39 +1,32 @@
-# AGENTS.md – coderabbit
+# AGENTS.md
 
-The central CodeRabbit configuration that every other repository inherits.
+Scope
 
-Everything here is settings and instructions for CodeRabbit only, to get the most out of it on the current plan. None of it is a rule for other review bots.
+- Work only in this repo. Never read, change or open PRs against other repos.
+- Do exactly what is asked. No extra files, lines, steps or config.
+- Repo-specific rules: see REPO.md.
 
-Read the shared rules at the start of every session: [GOVERNANCE.md](https://raw.githubusercontent.com/Pissmyran/.github/main/GOVERNANCE.md).
+Workflow
 
-## Commands
+- Never change workflows. Only Renovate and Dependabot may.
+- Never work around rulesets, checks or branch rules.
+- Ask before deviating from a tool's standard setup.
 
-```bash
-npx --yes js-yaml@latest .coderabbit.yaml > /dev/null
-```
+Git and review
 
-```bash
-npx --yes prettier@latest --check .coderabbit.yaml README.md AGENTS.md
-```
+- Squash merge, signed commits, auto-merge on.
+- A review conversation is resolved only after the comment is read in full and the flagged code is analyzed and fixed.
+- Nothing personal in code or docs. Generic placeholders only.
 
-Compare changed keys with the [configuration reference](https://docs.coderabbit.ai/reference/configuration) (schema: `https://coderabbit.ai/integrations/schema.v2.json`).
+Reporting and context
 
-## Rules
+- Report only the result, and only when done or blocked. No progress updates, no recaps.
+- Never poll. Never subscribe to PR, CI or repository activity. Never read GitHub notifications.
+- React only to warnings, errors and security alerts. Ignore routine confirmations such as bot comments and merge or subscription notices.
+- Load only the tools, files and history the current task needs.
 
-- `.coderabbit.yaml` is the review base for every repository, and this repository inherits nothing (`inheritance` is off by default). It targets eligible free OSS Team features; standard Free supplies hosted PR summaries only. Public repositories below 10 stars require manual review triggers. CodeRabbit stays advisory. `README.md` describes what the base sets.
-- Consuming repositories can inherit it with `inheritance: true` and add only what is specific to them: `path_instructions`, `path_filters`, labels, checks and linked repositories. Lists merge with the repository's entries first, and an entry with the same `path` or `label` replaces the base's.
-- **Only changed values live here.** The file lists the settings that differ from the CodeRabbit default (checked against the schema), nothing else. A setting equal to its default is removed, including the scanners and the on-by-default features, which stay on because they are the default. When CodeRabbit changes a default, review the effect.
-- **A change here affects every repository using this base** at its next review, subject to local and global overrides. Weigh each change against all of them.
-- Settings that apply to every repository belong here; instructions for specific files belong in each repository. Write instructions short and concrete, in the style of the existing ones.
-- **Never weaken the review:** do not turn off security tools and do not add exclusions for code.
-- **Never blocking:** no automatic approvals, no `fail_commit_status`, no checks in `error` mode.
-- **Zero cost:** keep code-writing `finishing_touches` and post-merge actions disabled. `early_access` and issue planning are on by the owner's choice. Guidance under `code_generation` may stay. Account usage-based billing and separately billed products must also stay disabled; YAML and `enable_free_tier` cannot cap spending or grant OSS access. Account entitlements and billing settings were not verified by this update.
-- **Labels** in `labeling_instructions` must exist in every repository. If you add one, say so in the pull request so the owner can create it. `review-ready`, `needs-rework` and `rewrite-recommended` form a mutually exclusive group.
-- **Quality labels (PRs only):** `quality-verified`, `findings-open` and `verification-needed` form a separate mutually exclusive group, independent of review state and issue labels. The owner must create these three new labels in each consuming repository before use; do not claim they already exist. They are revision-specific assessments, not GitHub approval, and do not change mergeability.
-- **Quality evidence:** `quality-verified` requires current-head evidence of completed applicable review, assessment of all findings including resolved and outdated threads, verified fixes or documented evidence-based dismissals, successful required repository validation and applicable security checks, and no pending or inconclusive required review or verification. A dismissal needs the remaining evidence too. Never infer success from merging, thread resolution, absent checks or skipped checks; a skipped check needs documented non-applicability, not a pass.
-- **Open findings and stale evidence:** confirmed unresolved findings or unaddressed failed validation require `findings-open`, including accepted or deferred valid findings and those in resolved or outdated threads. This takes precedence over missing evidence. Use `verification-needed` when no such finding or failure is known but evidence is unavailable, stale, incomplete, pending or inconclusive, including new unreviewed commits and unexplained skipped checks. Old revision evidence cannot verify a new head. Continuous label synchronization is not guaranteed; event-driven invalidation is owner-managed follow-up, not implemented automation.
-- **Presentation and automation:** use `chill` with concise defect/consequence/fix instructions, an expanded walkthrough and at most three summary bullets. Keep file summaries and review status messages off (`review_status: false`); related lists, reviewer suggestions and reviewer assignment are on, with `pissmyran` requested on every pull request (GitHub skips the request on pull requests `pissmyran` opened). Review comments on findings start with a `@pissmyran` mention; mentions are the only notification the owner wants, so do not add other notification channels. The personal values check and the Markdown and general path instructions allow the owner handle and the documentation address that GOVERNANCE.md (rule 18) defines; the address itself is never written in this repository. Include drafts and incremental reviews; `wip` pauses automatic reviews. Expanded walkthroughs do not guarantee every service section is expanded.
-- **Titles:** `[auto-title]` triggers Conventional Commits generation; preserve valid titles and keep the whole title under 72 characters. The PR title supplies the squash commit title under governance. The hosted schema has no commit-message automation setting; do not rewrite existing commits.
-- **Quota:** keep run details hidden and use `@coderabbitai rate limit` on demand. Never invent remaining reviews or an ETA from static configuration; availability depends on live rolling-window usage.
-- **Validation:** validate the complete YAML against the current schema, reject duplicate keys, check the 250-character tone limit and compare scanners and scope with the prior configuration. Keep README.md aligned. Other repositories' overrides were not inspected or changed; use `@coderabbitai configuration` there to verify effective inheritance.
-- **Label assessment:** keep issue and PR criteria separate. Require concrete evidence for rework or rewrite labels. `review-ready` is an assessment, not approval or proof of passing checks; labels do not alter mergeability. Keep the built-in slop classifier separate from defect findings and issue labeling; known AI authorship is not a defect.
+Language
+
+- Code, commits, PRs, labels: English.
+- Documentation: English first, Swedish copy in /sv.
+- Talk to the owner in Swedish.
