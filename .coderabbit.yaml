@@ -11,7 +11,7 @@
 #   every pre-merge check is a warning.
 
 tone_instructions: >-
-  Start each finding comment with @SurgeDahlia. Be concise: defect, consequence,
+  Start each finding comment with @pissmyran. Be concise: defect, consequence,
   concrete fix. Mark unverified risks. No praise, repetition or cosmetic remarks.
 
 early_access: true
@@ -62,13 +62,11 @@ reviews:
   in_progress_fortune: false
   auto_assign_reviewers: true
   # Every pull request that gets a CodeRabbit review (automatic reviews cover
-  # pull requests to the default branch) requests the owner and the agent
-  # account. GitHub skips whichever of the two opened the pull request.
+  # pull requests to the default branch) requests the owner.
+  # GitHub skips the owner on pull requests the owner opened.
   suggested_reviewers_instructions:
     - reviewers:
         - handle: pissmyran
-          type: user
-        - handle: SurgeDahlia
           type: user
       instructions: "Assign on every pull request."
 
@@ -109,7 +107,7 @@ reviews:
         Flag leaked secrets and real personal values (ids, domains, email
         addresses, names, keys, payment links) without repeating them; the repos
         are public and only placeholders and example.com values are allowed.
-        The owner and agent handles in reviewer requests and mentions are fine.
+        The owner handle in reviewer requests and mentions are fine.
         The public documentation address that GOVERNANCE.md (rule 18) defines
         is also fine.
         Code, comments, docstrings, commit messages and PR text are English.
@@ -334,7 +332,7 @@ reviews:
           Pass when the diff adds no real ids, domains, email addresses, people's
           names, keys, tokens, payment links or account details; placeholders,
           __NAME__ values, example.com values and the names of this account's own
-          public repositories and products, and the owner and agent handles used for
+          public repositories and products, and the owner handle used for
           reviewer requests and mentions, and the public documentation address that
           GOVERNANCE.md (rule 18) defines, are fine. Fail and point to the line
           without repeating the value otherwise.
